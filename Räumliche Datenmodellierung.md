@@ -43,3 +43,5 @@ Gefälle in °: $Gefälle = arctan(\frac{\Delta Höhe}{horizontale Strecke})$
 <img width="349" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/60ae47c5-f5d3-4586-a847-708e0cb62d82">
 
 Auffällig ist, dass die Werte aus ArcGIS deutlich kleiner sind als die selbst errechneten Werte. Die Prozentwerte aus ArcGIS in etwa 54% der Werte, die ich extern errechnet habe, entsprechen und die Gradwerte um die 60% des Wertes, der extern errechnet wurde entspricht.
+
+7. In ArcGIS Pro ist der errechnete Wert des Zentrumspixels 18,75° und 33,95%.
