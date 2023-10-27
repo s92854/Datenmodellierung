@@ -22,9 +22,11 @@ Der Wert 16 des nördlichen Pixels bedeutet eine Fließrichtung nach Westen.
 
 5. Folgende Pixel sind die 2 niedrigsten:
 
-<img width="162" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/70dffd86-d2ee-4d4b-9a69-be9f19a990ed">
+<img width="162" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/10348066-4925-42af-be5b-8368a04c5a56">
 
 > hier ist die Steigung angegeben, daher negatives Vorzeichen
+
+Beim Nordwestlichen Pixel muss der Satz des Pythagoras angewendet werden. $\frac{20}{\sqrt{25^2+25^2}}*100 = 56,57%$
 
 Die Höhen sind jedes Pixels sind ablesbar und hier einmal eingezeichnet:
 
