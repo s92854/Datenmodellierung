@@ -5,16 +5,16 @@ Isotropie = in alle Richtungen gleich ausbreitend
 Spatial Analyst Tool = SAT
 
 ## Höhenmodell in ArcGIS Pro erstellen
-1. Projekt mit Karte und Geodatenbase erstellen > Werkzeug: Raster in Geodatabase > .tiff als Eingabe, .gdb als Ausgabe > Katalog > Datenbanken > Aktualisieren > ausschnitt_harz_utm32 in Darstellungsreihenfolge ziehen
-2. Werkzeug fill "Füllung" (SAT) anwenden > neue .tiff importieren
-3. Fließrichtung "flow", auch D8 Methode gen., (SAT) berechnen lassen
-Zu XY wechseln > Meter einstellen > für X: ```609.286,5```, für Y: ```5.732.838,5``` > z.B. Marker mit Koordinaten für die Darstellung auswählen
+1. Projekt mit Karte und Geodatenbase erstellen > *Werkzeug*: **Raster in Geodatabase** > .tiff als Eingabe, .gdb als Ausgabe > Katalog > Datenbanken > Aktualisieren > ausschnitt_harz_utm32 in Darstellungsreihenfolge ziehen
+2. Werkzeug **fill** "Füllung" *(SAT)* anwenden
+3. **Fließrichtung** "flow", auch D8 Methode gen., (SAT) berechnen lassen
+**Zu XY wechseln** > Meter einstellen > für X: ```609.286,5```, für Y: ```5.732.838,5``` > z.B. Marker mit Koordinaten für die Darstellung auswählen
 
 <img width="958" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/30bb8258-9b9b-47af-9f35-ee9ccf056ee0">
 
 Auffällig ist, dass die Werte der Farbcodierung der Form 2<sup>0</sup> bis 2<sup>7</sup> entsprichen. Es ist in diesem Fall jedoch nicht anzunehmen, dass ein Zusammenhang zur Bittiefe besteht.
 
-4. Die Werte werden durch den Vergleich von Höhendaten berechnet. Der Wert 4 für die Koordinate ```609.286,5, 5.732.838,5``` weist auf die Flussrichtung nach Süden hin - nach der Logik: 1 = Osten, 2 = Südosten, 4 = Süden, usw.
+4. Die Werte werden durch den Vergleich von Höhendaten berechnet. Der Wert 4 für die Koordinate ```609.286,5, 5.732.838,5``` weist auf die Flussrichtung nach Süden hin - 1 = Osten, 2 = Südosten, 4 = Süden, usw.
 
 <img width="162" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/1d86d001-52c9-41da-bb18-abfd5b20fb61">
 
@@ -79,7 +79,7 @@ print (slope_degrees)
 
 12. Die Nachbarschaft bei nur einer gemeinsamen Kante wird als "rook-Nachbarschaft" bezeichnet. In dieser hat jede Zelle genau 4 Nachbarn: oben, unten, links und rechts.
 
-13. Man wählt das SAT: Abflussakkumulation (flow accumulation) und gibt das in Aufgabe 3 erstellte flow-Raster als Eingabe ein.
+13. Man wählt das *SAT*: **Abflussakkumulation** (flow accumulation) und gibt das in Aufgabe 3 erstellte flow-Raster als Eingabe ein.
 
 Das Ergebnis ist vorerst ein schwarzes Bild. Anschließend wählt man unter der Registerkarte "Raster-Layer" Streckungstyp und zieht den rechten Slider im Histogramm nach links, bis die Flussverläufe gut zu erkennen sind. Danach haben wir das blaue Farbschema ausgesucht, da es einen guten, aber nicht beißenden Kontrast gibt. Unser Ergebnis sieht dann so aus:
 
@@ -92,25 +92,38 @@ Zellen mit hohen Werten im Abflussakkumulations-Raster erhalten mehr Wasserzulau
 
 15. Es handelt sich um einen globalen Operator.
 
-16. Es sind mehrere Tools möglich: das If-Else-Bedinungen Tool, das Set Null Tool und der Raster Calculator. Im If-Else-Bedinungen Tool kann folgende SQL Formel verwendet werden, um das Flusssystem zu extrahieren:
+16. Es sind mehrere Tools möglich: das **If-Else-Bedinungen** Tool, das **Set Null** Tool und der **Raster Calculator**. Im **If-Else-Bedinungen** Tool kann folgende SQL Formel verwendet werden, um das Flusssystem zu extrahieren:
 
 ```
-VALUE <= 50000
+VALUE <= 30000
 ```
 
-Das Tool ist unter den Image-Analyst-Tools zu finden.
+Dabei ist es wichtig im Tool auf Integer zu stellen. Das Tool ist in den *Image-Analyst-Tools* zu finden.
 
 <img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/369a2fbb-e008-45b5-8642-73d8459be649">
 
 17. Im Raster-Calculator verwendet man einen lokalen Operator.
 
-18. Das Tool heißt Wasserlauf-Abschnitte, das Eingabe-Wasserlauf-Raster ist wieder das flow-Raster aus Aufgabe 3 und das Eingabe-Fließrichtungs-Raster ist das If-Else-flow-Raster aus Aufgabe 16.
+18. Das Tool heißt **Wasserlauf-Abschnitte**, das Eingabe-Wasserlauf-Raster ist wieder das flow-Raster aus Aufgabe 3 und das Eingabe-Fließrichtungs-Raster ist das If-Else-flow-Raster aus Aufgabe 16.
 
 Die Ganzzahlen haben ausnahmsweise keine Bedeutung, sondern sind lediglich durchnummerierte Zahlen.
 
-<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/76294aa7-3828-4c92-8a96-ab9210f79c9e">
+<img width="400" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/4f3fbab4-eede-45ac-8cc4-e70ddce188f3">
 
-19. Wir benötigen das SAT Wasserlauf-Ordnung. Als Wasserlauf-Raster geben wir das gerade erstellte If-Else Raster ein und als Fließrichtungs-Raster das flow-Raster aus Aufgabe 3. Wir erhalten ein Raster mit einer Gliederung von 1 - 8. Dabei bedeutet die 1, dass wenig (am geringsten) Wasser dort zusammenläuft und die 8, dass viel (am meisten) Wasser dort in diesem Punkt zusammenläuft. 1 können dabei Wasserquellen symbolisieren.
+19. Wir benötigen das *SAT* **Wasserlauf-Ordnung**. Als Wasserlauf-Raster geben wir das gerade erstellte If-Else Raster ein und als Fließrichtungs-Raster das flow-Raster aus Aufgabe 3. Wir erhalten ein Raster mit einer Gliederung von 1 - 4. Dabei bedeutet die 1, dass wenig (am geringsten) Wasser dort zusammenläuft und die 4, dass viel (am meisten) Wasser dort in diesem Punkt zusammenläuft. 1 symbolisieren dabei Wasserquellen.
 
-<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c5d65c7c-c4f6-4eb7-8d54-770baa9b1c8f">
+<img width="400" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c21c76c0-e984-4118-975e-18e4a8fd3ec7">
 
+20. In den Einstellungen des Tools **Raster zu Polylinien** verwenden wir das gerade erstellte Raster aus Aufgabe 19. In der Attributtabelle ist die hierarchische Abfolge in der Spalte **grid_code** abzulesen.
+
+<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/df0a3923-2df6-402c-8275-28e6344aed54">
+
+21. Das Tool **Wassereinzugsgebiet** generiert die Wasserscheiden. Als Eingangslayer wird das flow-Raster aus Aufgabe 3 verwendet. Anschließend das Tool **Raster zu Polygone** und das eben erstellte Wassereinzugsgebiet-Raster als Eingaberaster.
+
+<img width="400" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/f7f9f579-7078-40ff-826f-7398644d1f70">
+
+22. Um das Polygon zu separieren, rufen wir die Attributtabelle auf, selektieren das Polygon, drücken auf Umkehren und löschen alle anderen Polygone. Anschließend wird über das *Analysis Tool* **Ausschneiden** das Linienlayer im Polygonlayer ausgeschnitten. Als Eingabefeature sind die Polylinedaten und als Clipfeature das Wassereinzugsgebiet.
+
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/1c04f31a-d925-4b19-bfea-15a12f6ca22a">
+
+23. Mit dem *Conversion Tool* **Layer in KML** wird das Flusssystem als *.kml exportiert.
