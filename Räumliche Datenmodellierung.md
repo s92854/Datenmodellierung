@@ -79,33 +79,38 @@ print (slope_degrees)
 
 12. Die Nachbarschaft bei nur einer gemeinsamen Kante wird als "rook-Nachbarschaft" bezeichnet. In dieser hat jede Zelle genau 4 Nachbarn: oben, unten, links und rechts.
 
-13. Man wählt das SAT: Abflussakkumulation (flow accumulation).
+13. Man wählt das SAT: Abflussakkumulation (flow accumulation) und gibt das in Aufgabe 3 erstellte flow-Raster als Eingabe ein.
 
-Das Ergebnis sieht wie folgt aus:
+Das Ergebnis ist vorerst ein schwarzes Bild. Anschließend wählt man unter der Registerkarte "Raster-Layer" Streckungstyp und zieht den rechten Slider im Histogramm nach links, bis die Flussverläufe gut zu erkennen sind. Danach haben wir das blaue Farbschema ausgesucht, da es einen guten, aber nicht beißenden Kontrast gibt. Unser Ergebnis sieht dann so aus:
 
-<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/8ffed19e-edb2-4ae2-a8f5-9ff4aeb9bbb4">
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/651b5cf1-4bcb-4018-b531-57e89f2eac8a">
 
-14. Die Werte stellen die Anzahl der Zuflusszellen, die Wasser in diese bestimmte Zelle leiten, dar. Zellen mit niedrigen Werten im Abflussakkumulations-Raster erhalten weniger Wasserzulauf aus ihrer Umgebung. Das sind oft Zellen in höher gelegenen Gebieten, die weniger Wasser abfließen lassen.
+[//]: <> (Die Zellen, die einen prozentual hohen Zufluss haben, wird ein anderer Farbwert zugewiesen.)
+
+14. Die Werte stellen die kumulierte Anzahl der Zuflusszellen, die Wasser in diese bestimmte Zelle leiten, dar. Zellen mit niedrigen Werten im Abflussakkumulations-Raster erhalten weniger Wasserzulauf aus ihrer Umgebung. Das sind oft Zellen in höher gelegenen Gebieten, die weniger Wasser abfließen lassen.
 Zellen mit hohen Werten im Abflussakkumulations-Raster erhalten mehr Wasserzulauf aus ihrer Umgebung. Das sind typischerweise Zellen in niedriger gelegenen Gebieten oder in der Nähe von Wasserquellen, die einen großen Beitrag zum Wasserabfluss leisten.
 
-15. Es handelt sich um ein SAT - Spatial Analyst Tool
+15. Es handelt sich um einen globalen Operator.
 
-16. Man verwendet das Werkzeug Reklassifizieren aus dem Spatial Analyst Toolset und wendet folgende Formel an:
+16. Es sind mehrere Tools möglich: das If-Else-Bedinungen Tool, das Set Null Tool und der Raster Calculator. Im If-Else-Bedinungen Tool kann folgende SQL Formel verwendet werden, um das Flusssystem zu extrahieren:
 
 ```
-PLATZHALTER
+VALUE <= 50000
 ```
 
-Das Binärbild sieht dann folgendermaßen aus, wenn man auch die NoData-Werte schwarz färbt:
+Das Tool ist unter den Image-Analyst-Tools zu finden.
 
-<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/71c9344f-62cd-4573-8cd0-af7831d380cb">
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/369a2fbb-e008-45b5-8642-73d8459be649">
 
-17. Arithmetische Operatoren umfassen Addition (+), Subtraktion (-), Multiplikation (*), Division (/), Modulo (%), usw.
+17. Im Raster-Calculator verwendet man einen lokalen Operator.
 
-Zu Vergleichsoperatoren gehören Gleichheit (==), Ungleichheit (!=), Größer als (>), Kleiner als (<), Größer oder gleich (>=), Kleiner oder gleich (<=). Diese Operatoren werden verwendet, um Bedingungen zu prüfen und Rasterdaten zu vergleichen.
+18. Das Tool heißt Wasserlauf-Abschnitte, das Eingabe-Wasserlauf-Raster ist wieder das flow-Raster aus Aufgabe 3 und das Eingabe-Fließrichtungs-Raster ist das If-Else-flow-Raster aus Aufgabe 16.
 
-Logische Operatoren arbeiten mit UND (&&), ODER (||), NICHT (!). Sie werden verwendet, um logische Operationen auf Rasterdaten durchzuführen, wie zum Beispiel das Kombinieren von Bedingungen.
+Die Ganzzahlen haben ausnahmsweise keine Bedeutung, sondern sind lediglich durchnummerierte Zahlen.
 
-Mathematische Funktionen können wie SIN, COS, SQRT (Quadratwurzel), POW (Potenz), EXP (Exponentialfunktion) verwendet werden, um Rasterdaten zu verarbeiten.
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/76294aa7-3828-4c92-8a96-ab9210f79c9e">
 
-18. 
+19. Wir benötigen das SAT Wasserlauf-Ordnung. Als Wasserlauf-Raster geben wir das gerade erstellte If-Else Raster ein und als Fließrichtungs-Raster das flow-Raster aus Aufgabe 3. Wir erhalten ein Raster mit einer Gliederung von 1 - 8. Dabei bedeutet die 1, dass wenig (am geringsten) Wasser dort zusammenläuft und die 8, dass viel (am meisten) Wasser dort in diesem Punkt zusammenläuft. 1 können dabei Wasserquellen symbolisieren.
+
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c5d65c7c-c4f6-4eb7-8d54-770baa9b1c8f">
+
