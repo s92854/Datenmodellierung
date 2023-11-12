@@ -2,6 +2,8 @@
 
 1. Das **A**dvanced **S**paceborne **T**hermal **E**mission and **R**eflection Radiometer, kurz Aster, ist ein Instrument an Bord der Terra, welches bis zu 14 verschiedene Wellenlängen aufnehmen kann, die vom sichtbaren Licht bis in den Infrarotbereich reichen. Die Bilder haben dabei eine Bodenauflösung von 15 bis 90 m<sup>2</sup> aufnimmt. Das Aster ist das einzige "high spatial resolution" Instrument an Bord der Terra und fungiert so häufig auch als Zoom-Einheit, um so z.B. Veränderungen auf der Erdoberfläche zu untersuchen. Aster kann außerdem stereoskopische Bilder erzeugen, aus denen dann detaillierte, digitale Höhenmodelle erzeugt werden.
 
+&nbsp;
+
 2. 
 Projektion: WGS84 - Mercator
 Länge Halbachse: 
@@ -30,7 +32,7 @@ und wieder Koordinate 1, in das erweiterte Digitalisierungswerkzeug eingetragen.
 
 &nbsp;
 
-Raster > Reprojektionen > Transformieren (Reprojizieren)
+3. Raster > Reprojektionen > Transformieren (Reprojizieren)
 
 <img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/58b1de8c-64c0-4dee-b132-c9214963f54d">
 
@@ -53,7 +55,7 @@ Im Vergleich zur Konturvisualisierung der Original .tiff Datei werden die Linien
 
 &nbsp;
 
-Die Maximalwerte sind im Rasterhistogramm abgebildet und die maximale Höhe beträgt 1587m in diesem Ausschnitt.
+4. Die Maximalwerte sind im Rasterhistogramm abgebildet und die maximale Höhe beträgt 1587m in diesem Ausschnitt.
 
 <img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c566ae81-1c0d-4d43-b95e-bc7b03b8db97">
 
@@ -64,6 +66,36 @@ Dieser Wert kann jedoch nicht stimmen, da der höchste Wert im Harz der Brocken 
 **k.A.**
 
 <img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/848e8f4d-2a40-4747-88a5-9e1f0cab539f">
+
+&nbsp;
+
+5. 
+
+Infos der Originaldatei:
+
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/827dc46b-da1b-4e0f-9409-00eb4d04ed02">
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/be2672da-6baf-42ae-8c6c-a1febe1db71a">
+
+&nbsp;
+
+Infos des Ausschnitts:
+
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/4c67d479-74bf-403b-a81b-db1fbbdb6059">
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/1b1fb8d5-c87a-4d97-bf18-b724fb50e693">
+
+Beide Dateien haben eine angegebene Bodenauflösung von rund 20m. Auffällig ist, dass die Pixelanzahl der Originaldatei mit 3601x3601 angegeben, das Bild jedoch nicht quadratisch ist. Zommt man ran, erkennt man, dass die Pixel rechteckig sind. Der konvertierte Ausschnitt des Harzes hat jedoch quadratische Pixel mit einer angegebenen und gemessenen Pixelgröße von rund 20m.
+
+<img width="1200" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/8d676ba0-6201-4228-bdcb-db4471f6825b">
+
+Seltsamer Weise stehen jedoch nirgends die exakten Ausmaße der Pixel der Originaldatei.
+
+&nbsp;
+
+6.
+
+Im bin-Ordner von QGIS - standardmäßig ```C:\Program Files\QGIS %version%\bin``` ist die ```gdalwarp.exe``` zu finden.
+
+Die Hauptfunktion von gdaltindex.exe besteht darin, einen Index für eine Sammlung von Rasterdatensätzen zu erstellen. Dieser Index ist eine Datei, die Informationen über die enthaltenen Rasterdateien enthält, wie ihre Namen, Pfade und räumliche Ausdehnung. Der Tileindex ermöglicht es, schnell auf bestimmte Rasterdatensätze zuzugreifen, ohne alle Dateien einzeln durchsuchen zu müssen.
 
 
 ### Quellen
