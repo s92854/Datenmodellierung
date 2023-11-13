@@ -97,6 +97,41 @@ Im bin-Ordner von QGIS - standardmäßig ```C:\Program Files\QGIS %version%\bin`
 
 Die Hauptfunktion von gdaltindex.exe besteht darin, einen Index für eine Sammlung von Rasterdatensätzen zu erstellen. Dieser Index ist eine Datei, die Informationen über die enthaltenen Rasterdateien enthält, wie ihre Namen, Pfade und räumliche Ausdehnung. Der Tileindex ermöglicht es, schnell auf bestimmte Rasterdatensätze zuzugreifen, ohne alle Dateien einzeln durchsuchen zu müssen.
 
+### Lange Version mit Variablen:
+
+```batch
+@echo off
+
+set "QGIS_Version=3.30.1"
+set "path=C:\Program Files\QGIS %QGIS_Version%\bin"
+
+set "EingabeLayer=Eingabe.tif"
+set "AusgabeLayer=Ausgabe.tif"
+
+set "xmin="
+set "ymin="
+set "xmax="
+set "ymax="
+
+cd /d "%path%"
+gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "%EingabeLayer%" "%AusgabeLayer%"
+pause
+```
+
+&nbsp;
+
+### Kurze Version ohne Variablen:
+
+```batch
+cd "C:\Program Files\QGIS 3.30.1\bin\"
+gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "C:\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Documents\Output.tif"
+pause
+```
+
+> Ohne Pfadangabe wird die Datei mit dem übereinstimmenden Namen im selben Ordner, wie die .bat Datei gewählt und der Output auch wieder in diesen Ordner geschrieben
+
+[//]: # (x und y min und max gegen Werte ersetzen)
+
 
 ### Quellen
 https://terra.nasa.gov/about/terra-instruments/aster
