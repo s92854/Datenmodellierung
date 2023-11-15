@@ -97,57 +97,44 @@ Im bin-Ordner von QGIS - standardmäßig ```C:\Program Files\QGIS %version%\bin`
 
 Die Hauptfunktion von gdaltindex.exe besteht darin, einen Index für eine Sammlung von Rasterdatensätzen zu erstellen. Dieser Index ist eine Datei, die Informationen über die enthaltenen Rasterdateien enthält, wie ihre Namen, Pfade und räumliche Ausdehnung. Der Tileindex ermöglicht es, schnell auf bestimmte Rasterdatensätze zuzugreifen, ohne alle Dateien einzeln durchsuchen zu müssen.
 
-### Lange Version mit Variablen:
-
 ```batch
-@echo off
-
-set "QGIS_Version=3.30.1"
-set "path=C:\Program Files\QGIS %QGIS_Version%\bin"
-
-set "EingabeLayer=Eingabe.tif"
-set "AusgabeLayer=Ausgabe.tif"
-
-set "xmin="
-set "ymin="
-set "xmax="
-set "ymax="
-
-cd /d "%path%"
-gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "%EingabeLayer%" "%AusgabeLayer%"
+"C:\Program Files\QGIS 3.30.1\bin\gdalwarp.exe" -s_srs EPSG:4326 -t_srs EPSG:25832 -tr 25m 25m -te 575000 5700000 634000 5760000 -of GTiff "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
 pause
 ```
 
 &nbsp;
 
-### Kurze Version ohne Variablen:
-
-```batch
-cd "C:\Program Files\QGIS 3.30.1\bin\"
-gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
-pause
-```
-
-> Ohne Pfadangabe wird die Datei mit dem übereinstimmenden Namen im selben Ordner, wie die .bat Datei gewählt und der Output auch wieder in diesen Ordner geschrieben
-
-[//]: # (x und y min und max gegen Werte ersetzen)
-
-### Entgültige Version
-```
-"C:\Program Files\QGIS 3.30.1\bin\gdalwarp.exe" -s_srs EPSG:4326 -t_srs EPSG:25832 -tr 25m 25m -te 575000 5700000 634000 5760000 -of GTiff "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
-pause
-```
-
 7. Mit dem Tool Schmummerung (Raster > Analyse > Schmummerung)
 
 <img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/1ab4ecf6-ea95-455d-9c32-ad65a2ea411f">
 
+&nbsp;
+
 8. Der Lichteinstrahl- (Azimutalwinkel) liegt bei 315°. Das entspricht Nordwesten.
+
+&nbsp;
+
 9. Auch in ArcGIS Pro liegt der Sonneneinfallswinkel bei 315°
 
 <img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/6a46aaff-5e7d-4bad-bdc7-b0ec3cc5ee69">
 
+&nbsp;
 
+10.
+```batch
+"C:\Program Files\QGIS 3.30.1\bin\gdalwarp.exe" -s_srs EPSG:4326 -t_srs EPSG:25832 -tr 25m 25m -te 575000 5700000 634000 5760000 "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
+"C:\Program Files\QGIS 3.30.1\bin\gdaldem.exe" slope "C:\Users\%username%\Documents\ausschnitt_harz_utm32.tif" "C:\Users\%username%\Documents\ausschnitt_harz_slope.tif" -alg ZevenbergenThorne
+"C:\Program Files\QGIS 3.30.1\bin\gdaldem.exe" aspect "C:\Users\%username%\Documents\ausschnitt_harz_utm32.tif" "C:\Users\%username%\Documents\ausschnitt_harz_aspect.tif" -alg ZevenbergenThorne
+pause
+```
+
+&nbsp;
+
+11. Es handelt sich dabei um fokale Rasteranalysen.
+
+&nbsp;
+
+12. 
 
 ### Quellen
 https://terra.nasa.gov/about/terra-instruments/aster
