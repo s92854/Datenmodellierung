@@ -124,13 +124,29 @@ pause
 
 ```batch
 cd "C:\Program Files\QGIS 3.30.1\bin\"
-gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "C:\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Documents\Output.tif"
+gdalwarp -overwrite -tr 25 25 -r near -te %xmin% %ymin% %xmax% %ymax% -of GTiff "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
 pause
 ```
 
 > Ohne Pfadangabe wird die Datei mit dem übereinstimmenden Namen im selben Ordner, wie die .bat Datei gewählt und der Output auch wieder in diesen Ordner geschrieben
 
 [//]: # (x und y min und max gegen Werte ersetzen)
+
+### Entgültige Version
+```
+"C:\Program Files\QGIS 3.30.1\bin\gdalwarp.exe" -s_srs EPSG:4326 -t_srs EPSG:25832 -tr 25m 25m -te 575000 5700000 634000 5760000 -of GTiff "C:\Users\%username%\Documents\ASTGTMV003_N51E010_dem.tif" "C:\Users\%username%\Documents\Output.tif"
+pause
+```
+
+7. Mit dem Tool Schmummerung (Raster > Analyse > Schmummerung)
+
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/1ab4ecf6-ea95-455d-9c32-ad65a2ea411f">
+
+8. Der Lichteinstrahl- (Azimutalwinkel) liegt bei 315°. Das entspricht Nordwesten.
+9. Auch in ArcGIS Pro liegt der Sonneneinfallswinkel bei 315°
+
+<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/6a46aaff-5e7d-4bad-bdc7-b0ec3cc5ee69">
+
 
 
 ### Quellen
