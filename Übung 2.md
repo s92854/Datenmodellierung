@@ -1,5 +1,7 @@
 # Übung 2: Raster-Oberflächenanalyse
 
+Die Dateien bis Aufgabe 11 findet ihr [hier](https://cloud.bht-berlin.de/index.php/s/ETzjfgMymbAeXAc)
+
 1. Das **A**dvanced **S**paceborne **T**hermal **E**mission and **R**eflection Radiometer, kurz Aster, ist ein Instrument an Bord der Terra, welches bis zu 14 verschiedene Wellenlängen aufnehmen kann, die vom sichtbaren Licht bis in den Infrarotbereich reichen. Die Bilder haben dabei eine Bodenauflösung von 15 bis 90 m<sup>2</sup> aufnimmt. Das Aster ist das einzige "high spatial resolution" Instrument an Bord der Terra und fungiert so häufig auch als Zoom-Einheit, um so z.B. Veränderungen auf der Erdoberfläche zu untersuchen. Aster kann außerdem stereoskopische Bilder erzeugen, aus denen dann detaillierte, digitale Höhenmodelle erzeugt werden.
 
 &nbsp;
