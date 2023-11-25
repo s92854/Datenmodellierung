@@ -237,7 +237,7 @@ Nun Transparenz aller 0-Werte auf 0 und 1-Werte eine andere Farbe geben und Tran
 
 &nbsp;
 
-24. Die Koordinaten für pk=4 lauten: ```x = 605548,213```, ```y = 5745815,342```.
+24. Die Koordinaten für pk=1 lauten: ```x = 604010,481```, ```y = 5746377,024```.
 
 &nbsp;
 
