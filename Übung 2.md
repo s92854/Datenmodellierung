@@ -50,7 +50,7 @@ Raster > Extraktion > Kontur
 
 <img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/82f89c7f-7f81-450e-84ee-c933337f5b80">
 
-Im Vergleich zur Konturvisualisierung der Original .tiff Datei werden die Linien normalisiert.
+Im Vergleich zur Konturvisualisierung der Original .tif Datei werden die Linien normalisiert.
 
 <img width="1200" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/5220e6ca-b9cd-412e-9172-1f1b2d8ef35f">
 
@@ -206,15 +206,18 @@ Attributtabelle öffnen > Bearbeitungsmodus aktivieren > Feldrechner > ```$area 
 
 21. Vektor > Analyse-Werkzeuge > Distanzmatrix
 
+&nbsp;
+
+22. 
 ### Kürzeste & längste Distanz
-|pk|Distanz|
-|--|--|
-|0|6841,79m|
-|13|20305,23m|
+|pk|Distanz||
+|--|--|--|
+|0|6841,79m|kürzeste Distanz|
+|13|20305,23m|längste Distanz|
 
 &nbsp;
 
-22. Erweiterungen > Visibility Analysis
+23. Erweiterungen > Visibility Analysis
 
 <img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/b344d1f5-7089-4f96-b630-cf4992c3afbc">
 
@@ -234,9 +237,20 @@ Nun Transparenz aller 0-Werte auf 0 und 1-Werte eine andere Farbe geben und Tran
 
 &nbsp;
 
-23.
+24. Die Koordinaten für pk=4 lauten: ```x = 605548,213```, ```y = 5745815,342```.
 
+&nbsp;
+
+25. Das Eingaberaster ist das slope Raster.
+
+&nbsp;
+
+26. rund 3336
 
 
 ### Quellen
 https://terra.nasa.gov/about/terra-instruments/aster
+
+
+Nico Haupt (956450)
+Tara Richter (934172)
