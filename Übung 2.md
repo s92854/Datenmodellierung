@@ -148,11 +148,71 @@ del %folder%\%log%
 for %%i in ("%folder%\*.tif") do (
   gdalinfo.exe %%i >> %folder%\%log%
   echo. >> %folder%\%log%
-  echo ********************** >> %folder%\%log%
+  echo ****************** >> %folder%\%log%
   echp. >> %folder%\%log%
 )
 pause
 ```
+
+&nbsp;
+
+13. ```"ausschnitt_harz_aspect@1" >= 250 AND "ausschnitt_harz_aspect@1" <= 290 AND "ausschnitt_harz_slope@1" <= 25 AND "Output@1" >= 700```
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/0df3120e-b872-4e22-94c8-51b924c73700)
+
+&nbsp;
+
+14. Symbolisierung > Darstellungsart: Paletten-/ Eindeutige Werte
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/c8068ab4-2e7d-450b-98f6-9d17c1c8d7e8)
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/85ec99bd-6add-4d9a-9f39-820833ab8ab5)
+
+&nbsp;
+
+15. Raster > Analyse > Sieben > Input: gerade eben erstelltes Binärbild > Schwellenwert: 8
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/ed379e6b-aff9-4093-8957-be021e8d519a)
+
+&nbsp;
+
+16. Raster > Rasterrechner > ```"ausschnitt_harz_aspect_slope_sieve@1" = 1```
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/ce439fb1-1905-4fe3-8407-089f75cfcc34)
+
+&nbsp;
+
+17. Raster > Konvertieren > Vektorisieren
+
+Attributtabelle öffnen > Bearbeitungsmodus aktivieren > Feldrechner > ```$area / 10000``` > Namen wählen (hier: ha) und Ausgabefeldtyp auf Real stellen > Zeile mit der größten Zahl (rund 353515) wählen und löschen > Speichern
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/c1f1d887-717e-4a27-a97f-290580e84281)
+
+18. Attributtabelle öffnen > Objekte über Ausdruck wählen > ```ha < 3``` > Objekte wählen und löschen (28 müssen übrig bleiben)
+
+&nbsp;
+
+19. Vektor > Geometrie-Werkzeuge > Zentroide
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/be94f2a3-a092-463e-8759-29241f3b74a6)
+
+20. Feldrechner > Neue Spalte > Name: pk > ```@id```
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/69e6c930-d4cd-49a7-b2f5-da26806e5ded)
+
+21. Vektor > Analyse-Werkzeuge > Distanzmatrix
+
+### Kürzeste & längste Distanz
+|pk|Distanz|
+|--|--|
+|0|6841,79m|
+|13|20305,23m|
+
+22. Erweiterungen > Visibility Analysis
+
+![image](https://github.com/s92854/Datenmodellierung/assets/134683810/b344d1f5-7089-4f96-b630-cf4992c3afbc)
+
+23. 
 
 ### Quellen
 https://terra.nasa.gov/about/terra-instruments/aster
