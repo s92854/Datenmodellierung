@@ -8,7 +8,7 @@ Die Dateien bis Aufgabe 11 findet ihr [hier](https://cloud.bht-berlin.de/index.p
 
 2. 
 Projektion: WGS84 - Mercator
-Länge Halbachse: 
+Länge Halbachse: ca. 6378137 Meter
 
 Projektion auf UTM32 umstellen
 
