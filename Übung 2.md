@@ -138,5 +138,21 @@ pause
 
 12. 
 
+```batch
+cd /d "C:\Program Files\QGIS 3.30.1\bin"
+set folder="C:\Users\%username%\Documents"
+echo %folder%
+set log=log.log
+echo %log%
+del %folder%\%log%
+for %%i in ("%folder%\*.tif") do (
+  gdalinfo.exe %%i >> %folder%\%log%
+  echo. >> %folder%\%log%
+  echo ********************** >> %folder%\%log%
+  echp. >> %folder%\%log%
+)
+pause
+```
+
 ### Quellen
 https://terra.nasa.gov/about/terra-instruments/aster
