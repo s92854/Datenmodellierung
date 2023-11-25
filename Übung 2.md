@@ -158,27 +158,27 @@ pause
 
 13. ```"ausschnitt_harz_aspect@1" >= 250 AND "ausschnitt_harz_aspect@1" <= 290 AND "ausschnitt_harz_slope@1" <= 25 AND "Output@1" >= 700```
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/0df3120e-b872-4e22-94c8-51b924c73700">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/0df3120e-b872-4e22-94c8-51b924c73700">
 
 &nbsp;
 
 14. Symbolisierung > Darstellungsart: Paletten-/ Eindeutige Werte
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c8068ab4-2e7d-450b-98f6-9d17c1c8d7e8">
+<img width="900" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c8068ab4-2e7d-450b-98f6-9d17c1c8d7e8">
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/85ec99bd-6add-4d9a-9f39-820833ab8ab5">
+<img width="900" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/85ec99bd-6add-4d9a-9f39-820833ab8ab5">
 
 &nbsp;
 
 15. Raster > Analyse > Sieben > Input: gerade eben erstelltes Binärbild > Schwellenwert: 8
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/ed379e6b-aff9-4093-8957-be021e8d519a">
+<img width="700" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/ed379e6b-aff9-4093-8957-be021e8d519a">
 
 &nbsp;
 
 16. Raster > Rasterrechner > ```"ausschnitt_harz_aspect_slope_sieve@1" = 1```
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/ce439fb1-1905-4fe3-8407-089f75cfcc34">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/ce439fb1-1905-4fe3-8407-089f75cfcc34">
 
 &nbsp;
 
@@ -186,7 +186,7 @@ pause
 
 Attributtabelle öffnen > Bearbeitungsmodus aktivieren > Feldrechner > ```$area / 10000``` > Namen wählen (hier: ha) und Ausgabefeldtyp auf Real stellen > Zeile mit der größten Zahl (rund 353515) wählen und löschen > Speichern
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c1f1d887-717e-4a27-a97f-290580e84281">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c1f1d887-717e-4a27-a97f-290580e84281">
 
 18. Attributtabelle öffnen > Objekte über Ausdruck wählen > ```ha < 3``` > Objekte wählen und löschen (28 müssen übrig bleiben)
 
@@ -194,13 +194,13 @@ Attributtabelle öffnen > Bearbeitungsmodus aktivieren > Feldrechner > ```$area 
 
 19. Vektor > Geometrie-Werkzeuge > Zentroide
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/be94f2a3-a092-463e-8759-29241f3b74a6">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/be94f2a3-a092-463e-8759-29241f3b74a6">
 
 &nbsp;
 
 20. Feldrechner > Neue Spalte > Name: pk > ```@id```
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/69e6c930-d4cd-49a7-b2f5-da26806e5ded">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/69e6c930-d4cd-49a7-b2f5-da26806e5ded">
 
 &nbsp;
 
@@ -219,21 +219,21 @@ Attributtabelle öffnen > Bearbeitungsmodus aktivieren > Feldrechner > ```$area 
 
 23. Erweiterungen > Visibility Analysis
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/b344d1f5-7089-4f96-b630-cf4992c3afbc">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/b344d1f5-7089-4f96-b630-cf4992c3afbc">
 
 Layer > Neuen Shapedateilayer erstellen > Geometrietyp: Punkt > Layer bearbeiten > Punkt hinzufügen > Punkt in Altenau wählen
 
 Visibility Analysis > Create Viewpoints > Altenaupunkt als Observerlocation und als Digital elevation model das Layer aus Aufgabe 16 verwenden:
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/a86dd54c-b44f-4a32-8756-6889d0ee14f1">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/a86dd54c-b44f-4a32-8756-6889d0ee14f1">
 
 Visibility Analysis > Viewshed > Altenau Viewpoint als Observerlocation und als digital elevation model Output aus Aufgabe 6 verwenden:
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/cfe8c181-31af-4009-96cf-d6da71fd86d1">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/cfe8c181-31af-4009-96cf-d6da71fd86d1">
 
 Nun Transparenz aller 0-Werte auf 0 und 1-Werte eine andere Farbe geben und Transparenz herunter setzen. Alle Punkte der Distanzen löschen, die innerhalb dieser Fläche sind. Es bleiben 16 Standorte übrig.
 
-<img width="500" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/679308e2-a0f5-495c-a24f-2c97c8311cb1">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/679308e2-a0f5-495c-a24f-2c97c8311cb1">
 
 &nbsp;
 
