@@ -57,15 +57,11 @@ Im Vergleich zur Konturvisualisierung der Original .tif Datei werden die Linien 
 
 &nbsp;
 
-4. Die Maximalwerte sind im Rasterhistogramm abgebildet und die maximale Höhe beträgt 1587m in diesem Ausschnitt.
+4. Stellt man unter Symbolisierung die Min/Max Genauigkeit auf Genau (langsamer), erhält man einen Maximalwert von 1037m.
 
-<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/c566ae81-1c0d-4d43-b95e-bc7b03b8db97">
+<img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/2e37067c-2025-4090-b2bc-42d7efecd1ce">
 
-Dieser Wert kann jedoch nicht stimmen, da der höchste Wert im Harz der Brocken mit rund 1141m (laut Internetrecherche) ist. Die größte Höhe des Brockens liegt laut QGIS bei 1131m (siehe nächstes Bild).
-
-*Wie kriegen wir für unser Höhenmodell die Einstellungen so angepasst, dass auch unsere Extremwerte richtig in der Statistik angezeigt werden?*
-
-**k.A.**
+Der höchste Wert im Harz ist der Brocken mit rund 1141m (laut Internetrecherche). Die 1037m sind dabei schon recht nah am tatsächlichen Wert dran.
 
 <img width="800" alt="image" src="https://github.com/s92854/Datenmodellierung/assets/134683810/848e8f4d-2a40-4747-88a5-9e1f0cab539f">
 
