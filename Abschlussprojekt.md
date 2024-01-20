@@ -1,5 +1,4 @@
-# Abschlussprojekt: E-Ladesäulen in Deutschland und ihre Anbindung an das Verkehrsnetz
-Auswirkungen anthropologischen Bauens - Windräder
+# Abschlussprojekt: E-Ladesäulen in Deutschland und ihre Anbindung an die deutschen Autobahnen
 
 ### Alexander Radünz (950795), Nico Haupt (956450), Tara Richter (934172) und Tilman Frauenstein (956182)
 
